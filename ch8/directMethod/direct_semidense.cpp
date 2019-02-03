@@ -156,13 +156,13 @@ public:
 
 int main ( int argc, char** argv )
 {
-    if ( argc != 2 )
-    {
-        cout<<"usage: useLK path_to_dataset"<<endl;
-        return 1;
-    }
+//    if ( argc != 2 )
+//    {
+//        cout<<"usage: useLK path_to_dataset"<<endl;
+//        return 1;
+//    }
     srand ( ( unsigned int ) time ( 0 ) );
-    string path_to_dataset = argv[1];
+    string path_to_dataset = "../../data";
     string associate_file = path_to_dataset + "/associate.txt";
 
     ifstream fin ( associate_file );
