@@ -10,13 +10,13 @@
 
 int main ( int argc, char** argv )
 {
-    if ( argc != 2 )
-    {
-        cout<<"usage: run_vo parameter_file"<<endl;
-        return 1;
-    }
+//    if ( argc != 2 )
+//    {
+//        cout<<"usage: run_vo parameter_file"<<endl;
+//        return 1;
+//    }
 
-    myslam::Config::setParameterFile ( argv[1] );
+    myslam::Config::setParameterFile ("/home/aiways/workspace/slambook/project/0.2/config/default.yaml");
     myslam::VisualOdometry::Ptr vo ( new myslam::VisualOdometry );
 
     string dataset_dir = myslam::Config::get<string> ( "dataset_dir" );

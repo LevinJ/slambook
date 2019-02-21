@@ -175,7 +175,9 @@ void VisualOdometry::poseEstimationPnP()
         0,0,1
     );
     Mat rvec, tvec, inliers;
-    cv::solvePnPRansac( pts3d, pts2d, K, Mat(), rvec, tvec, false, 100, 4.0, 0.99, inliers );
+//    cv::solvePnPRansac( pts3d, pts2d, K, Mat(), rvec, tvec, false, 100, 4.0, 0.99, inliers );
+
+    cv::solvePnPRansac( pts3d, pts2d, K, Mat(), rvec, tvec, false, 100,8.0, 0.99, inliers );
     num_inliers_ = inliers.rows;
     cout<<"pnp inliers: "<<num_inliers_<<endl;
     T_c_r_estimated_ = SE3(
