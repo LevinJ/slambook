@@ -6,3 +6,13 @@ cmake_install.cmake
 *.kdev4
 *.DS*
 .idea*
+project/data/
+.cproject
+.project
+.pydevproject
+.settings/
+3rdparty/
+ch8/data/
+*.so
+bin/
+lib/

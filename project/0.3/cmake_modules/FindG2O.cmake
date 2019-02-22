@@ -1,5 +1,6 @@
 # Find the header files
 
+message("findg2o is called")
 FIND_PATH(G2O_INCLUDE_DIR g2o/core/base_vertex.h
   ${G2O_ROOT}/include
   $ENV{G2O_ROOT}/include
@@ -11,6 +12,10 @@ FIND_PATH(G2O_INCLUDE_DIR g2o/core/base_vertex.h
   /sw/include
   NO_DEFAULT_PATH
   )
+
+message("G2O_ROOT = "  ${G2O_ROOT})  
+message("G2O_INCLUDE_DIR = "  ${G2O_INCLUDE_DIR})
+
 
 # Macro to unify finding both the debug and release versions of the
 # libraries; this is adapted from the OpenSceneGraph FIND_LIBRARY
@@ -77,6 +82,9 @@ ENDMACRO(FIND_G2O_LIBRARY LIBRARY LIBRARYNAME)
 # Find the core elements
 FIND_G2O_LIBRARY(G2O_STUFF_LIBRARY stuff)
 FIND_G2O_LIBRARY(G2O_CORE_LIBRARY core)
+
+message("G2O_CORE_LIBRARY = "  ${G2O_CORE_LIBRARY})
+message("G2O_CORE_LIBRARY_DEBUG = "  ${G2O_CORE_LIBRARY_DEBUG})
 
 # Find the CLI library
 FIND_G2O_LIBRARY(G2O_CLI_LIBRARY cli)
