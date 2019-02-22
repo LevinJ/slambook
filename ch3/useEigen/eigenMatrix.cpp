@@ -7,13 +7,22 @@ using namespace std;
 #include <Eigen/Dense>
 
 #define MATRIX_SIZE 50
-
+#include <vector>
 /****************************
 * 本程序演示了 Eigen 基本类型的使用
 ****************************/
 
 int main( int argc, char** argv )
 {
+    Eigen::Matrix3d matrix_R;
+    std::vector<double> v_temp(100, 2.0); 
+    matrix_R << 0.117915988, -0.080854960, 0.989726365, 0.082017183, 0.994067311, 0.071438067,  -0.989630640, 0.072750881, 0.123847984;
+    cout<<"matrix_R"<<endl<<matrix_R<<endl;
+    cout<<"matrix_R.T"<<endl<<matrix_R.transpose()<<endl;
+    cout<<"matrix_R.inverse"<<endl<<matrix_R.inverse()<<endl;
+    cout<<"matrix_R.inverse * matrix_R.T"<<endl<<matrix_R *  matrix_R.transpose() <<endl;
+    
+    
     // Eigen 中所有向量和矩阵都是Eigen::Matrix，它是一个模板类。它的前三个参数为：数据类型，行，列
     // 声明一个2*3的float矩阵
     Eigen::Matrix<float, 2, 3> matrix_23;

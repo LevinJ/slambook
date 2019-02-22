@@ -1,5 +1,6 @@
 #include <iostream>
 #include <iomanip>
+#include <cmath>
 using namespace std;
 
 #include <Eigen/Core>
@@ -91,6 +92,8 @@ int main ( int argc, char** argv )
         
         pangolin::OpenGlMatrix matrix = s_cam.GetModelViewMatrix();
         Matrix<double,4,4> m = matrix;
+
+        cout<<"model view"<<endl<<m<<endl;
         // m = m.inverse();
         RotationMatrix R; 
         for (int i=0; i<3; i++)
@@ -100,12 +103,16 @@ int main ( int argc, char** argv )
         
         TranslationVector t;
         t.trans = Vector3d(m(0,3), m(1,3), m(2,3));
+        cout<<"tcw"<<t.trans<<endl;
         t.trans = -R.matrix*t.trans;
+        cout<<"twc"<<t.trans<<endl;
         translation_vector = t;
         
         TranslationVector euler;
         euler.trans = R.matrix.transpose().eulerAngles(2,1,0);
+        euler.trans = euler.trans * (180.0/M_PI);
         euler_angles = euler;
+        cout<<"euler.trans"<<euler.trans<<endl;
         
         QuaternionDraw quat;
         quat.q = Quaterniond(R.matrix);

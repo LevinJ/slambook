@@ -3,6 +3,8 @@ project( visualizeGeometry )
 
 set(CMAKE_CXX_FLAGS "-std=c++11")
 
+add_definitions( -DUSE_EIGEN -DHAVE_EIGEN -g)
+
 # 添加Eigen头文件
 include_directories( "/usr/include/eigen3" )
 
