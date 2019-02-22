@@ -32,14 +32,14 @@ Point2f pixel2cam( const Point2d& p, const Mat& K );
 
 int main ( int argc, char** argv )
 {
-    if ( argc != 3 )
-    {
-        cout<<"usage: triangulation img1 img2"<<endl;
-        return 1;
-    }
+//    if ( argc != 3 )
+//    {
+//        cout<<"usage: triangulation img1 img2"<<endl;
+//        return 1;
+//    }
     //-- 读取图像
-    Mat img_1 = imread ( argv[1], CV_LOAD_IMAGE_COLOR );
-    Mat img_2 = imread ( argv[2], CV_LOAD_IMAGE_COLOR );
+	Mat img_1 = imread ( "/home/aiways/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
+	Mat img_2 = imread ( "/home/aiways/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
 
     vector<KeyPoint> keypoints_1, keypoints_2;
     vector<DMatch> matches;

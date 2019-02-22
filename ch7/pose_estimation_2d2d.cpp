@@ -28,14 +28,14 @@ Point2d pixel2cam ( const Point2d& p, const Mat& K );
 
 int main ( int argc, char** argv )
 {
-    if ( argc != 3 )
-    {
-        cout<<"usage: pose_estimation_2d2d img1 img2"<<endl;
-        return 1;
-    }
+//    if ( argc != 3 )
+//    {
+//        cout<<"usage: pose_estimation_2d2d img1 img2"<<endl;
+//        return 1;
+//    }
     //-- 读取图像
-    Mat img_1 = imread ( argv[1], CV_LOAD_IMAGE_COLOR );
-    Mat img_2 = imread ( argv[2], CV_LOAD_IMAGE_COLOR );
+    Mat img_1 = imread ( "/home/aiways/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
+    Mat img_2 = imread ( "/home/aiways/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
 
     vector<KeyPoint> keypoints_1, keypoints_2;
     vector<DMatch> matches;
@@ -157,7 +157,7 @@ void pose_estimation_2d2d ( std::vector<KeyPoint> keypoints_1,
     Point2d principal_point ( 325.1, 249.7 );	//相机光心, TUM dataset标定值
     double focal_length = 521;			//相机焦距, TUM dataset标定值
     Mat essential_matrix;
-    essential_matrix = findEssentialMat ( points1, points2, focal_length, principal_point );
+    essential_matrix = findEssentialMat ( points1, points2, focal_length, principal_point);
     cout<<"essential_matrix is "<<endl<< essential_matrix<<endl;
 
     //-- 计算单应矩阵

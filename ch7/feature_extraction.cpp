@@ -25,7 +25,8 @@ int main ( int argc, char** argv )
     // Ptr<FeatureDetector> detector = FeatureDetector::create(detector_name);
     // Ptr<DescriptorExtractor> descriptor = DescriptorExtractor::create(descriptor_name);
     Ptr<DescriptorMatcher> matcher  = DescriptorMatcher::create ( "BruteForce-Hamming" );
-
+//    Ptr<DescriptorMatcher> matcher  = DescriptorMatcher::create ( "FlannBased" );
+//    FlannBasedMatcher *matcher = new FlannBasedMatcher();
     //-- 第一步:检测 Oriented FAST 角点位置
     detector->detect ( img_1,keypoints_1 );
     detector->detect ( img_2,keypoints_2 );
@@ -42,6 +43,7 @@ int main ( int argc, char** argv )
     vector<DMatch> matches;
     //BFMatcher matcher ( NORM_HAMMING );
     matcher->match ( descriptors_1, descriptors_2, matches );
+    cout<< "match sized = "<<matches.size()<<endl;
 
     //-- 第四步:匹配点对筛选
     double min_dist=10000, max_dist=0;
@@ -63,14 +65,19 @@ int main ( int argc, char** argv )
 
     //当描述子之间的距离大于两倍的最小距离时,即认为匹配有误.但有时候最小距离会非常小,设置一个经验值30作为下限.
     std::vector< DMatch > good_matches;
+    int cnt = 0;
     for ( int i = 0; i < descriptors_1.rows; i++ )
     {
         if ( matches[i].distance <= max ( 2*min_dist, 30.0 ) )
         {
-            good_matches.push_back ( matches[i] );
+        	cnt++;
+//        	if(cnt%40 == 0){
+        	good_matches.push_back ( matches[i] );
+//        	}
+
         }
     }
-
+    cout<< "good match size = "<<cnt<<endl;
     //-- 第五步:绘制匹配结果
     Mat img_match;
     Mat img_goodmatch;
