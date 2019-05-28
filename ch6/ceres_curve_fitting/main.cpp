@@ -60,6 +60,7 @@ int main ( int argc, char** argv )
     ceres::Solver::Options options;     // 这里有很多配置项可以填
     options.linear_solver_type = ceres::DENSE_QR;  // 增量方程如何求解
     options.minimizer_progress_to_stdout = true;   // 输出到cout
+//    options.max_num_iterations = 100000;
 
     ceres::Solver::Summary summary;                // 优化信息
     chrono::steady_clock::time_point t1 = chrono::steady_clock::now();
