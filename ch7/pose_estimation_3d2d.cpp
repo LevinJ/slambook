@@ -40,8 +40,8 @@ int main ( int argc, char** argv )
 //        return 1;
 //    }
     //-- 读取图像
-	 Mat img_1 = imread ( "/home/aiways/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
-	 Mat img_2 = imread ( "/home/aiways/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
+	 Mat img_1 = imread ( "/home/levin/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
+	 Mat img_2 = imread ( "/home/levin/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
 
     vector<KeyPoint> keypoints_1, keypoints_2;
     vector<DMatch> matches;
@@ -49,7 +49,7 @@ int main ( int argc, char** argv )
     cout<<"一共找到了"<<matches.size() <<"组匹配点"<<endl;
 
     // 建立3D点
-    Mat d1 = imread ( "/home/aiways/workspace/slambook/ch7/1_depth.png", CV_LOAD_IMAGE_UNCHANGED );       // 深度图为16位无符号数，单通道图像
+    Mat d1 = imread ( "/home/levin/workspace/slambook/ch7/1_depth.png", CV_LOAD_IMAGE_UNCHANGED );       // 深度图为16位无符号数，单通道图像
     Mat K = ( Mat_<double> ( 3,3 ) << 520.9, 0, 325.1, 0, 521.0, 249.7, 0, 0, 1 );
     vector<Point3f> pts_3d;
     vector<Point2f> pts_2d;

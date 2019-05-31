@@ -34,8 +34,8 @@ int main ( int argc, char** argv )
 //        return 1;
 //    }
     //-- 读取图像
-    Mat img_1 = imread ( "/home/aiways/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
-    Mat img_2 = imread ( "/home/aiways/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
+    Mat img_1 = imread ( "/home/levin/workspace/slambook/ch7/1.png", CV_LOAD_IMAGE_COLOR );
+    Mat img_2 = imread ( "/home/levin/workspace/slambook/ch7/2.png", CV_LOAD_IMAGE_COLOR );
 
     vector<KeyPoint> keypoints_1, keypoints_2;
     vector<DMatch> matches;
